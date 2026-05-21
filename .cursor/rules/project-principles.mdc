@@ -1,0 +1,48 @@
+---
+description: Core workflow and decision-making for PWA starter template
+alwaysApply: true
+---
+
+# Project principles
+
+## Pace and scope
+
+- Build step by step. Do not scaffold the full app in one pass unless explicitly asked.
+- One focused change per task (e.g. theme tokens only, then one screen shell).
+- After each step, summarize what changed and suggest the next step; wait for confirmation before starting the next feature unless asked to continue.
+- Do not add npm packages without asking first.
+
+## Audience
+
+- Owner understands code but is not a full-time developer.
+- Prefer clarity and small surface area over clever abstractions. Less is more.
+- Name files and folders plainly; avoid deep nesting until it is needed.
+
+## Design fidelity
+
+- Consistency with the design system beats speed.
+- The UI design is fixed; do not invent layout, copy, colors, spacing, or typography beyond provided specs and tokens.
+- Do not add new visual details (colors, spacing, type scales) beyond what exists in `theme.css`.
+
+## Component inventory
+
+- Only use components listed in `docs/components.md`.
+- Component list pending until finalized—do not create reusable components until the list is populated and approved.
+- Do not add new reusable components without explicit approval.
+- One-off layout markup inside a screen is fine; extracting a new shared component is not.
+
+## Colors
+
+- Use **palette tokens** from `theme.css` only (`--color-accent`, `--color-shade-*`, etc.) — no extra semantic color aliases beyond the palette.
+- See `AGENTS.md` → **Colors (palette only)** for CSS, TS, PWA, and status bar rules.
+
+## When blocked
+
+- Missing token → stop; ask which palette color to use or request it be added to `src/styles/theme.css`.
+- Missing asset → stop; ask for upload per `docs/assets.md` (no placeholders, icon packs, or generated substitutes).
+- Missing copy → stop; ask for exact text or add it under `src/content/` first.
+
+## When in doubt
+
+- Ask questions instead of making assumptions.
+- Consistency with the design system takes priority over speed.

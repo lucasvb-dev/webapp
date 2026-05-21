@@ -1,0 +1,170 @@
+/* Design tokens */
+
+/* Font faces */
+@font-face {
+  font-family: Tommy;
+  src:
+    url("/fonts/tommy-regular.woff2") format("woff2"),
+    url("/fonts/tommy-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Tommy;
+  src:
+    url("/fonts/tommy-medium.woff2") format("woff2"),
+    url("/fonts/tommy-medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Tommy;
+  src:
+    url("/fonts/tommy-black.woff2") format("woff2"),
+    url("/fonts/tommy-black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light dark;
+
+  --font-family-base: Tommy, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-black: 900;
+
+  /* Colors */
+  --color-white: #ffffff;
+  --color-shade-lightest: #f2f6f2;
+  --color-shade-light: #e2e6e2;
+  --color-shade-midtone: #787c78;
+  --color-shade-dark: #262a26;
+  --color-shade-darkest: #161a16;
+  --color-black: #000000;
+  --color-accent: #0027D9;
+
+  /* Space */
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-56: 56px;
+
+  /* Radius */
+  --radius-small: 2px;
+  --radius-medium: 12px;
+  --radius-large: 24px;
+  --radius-full: 200px;
+}
+
+/* Typography */
+.text-title-large {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-black);
+  font-size: 96px;
+  line-height: 80px;
+  letter-spacing: -4.8px;
+}
+
+.text-title-medium {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-black);
+  font-size: 72px;
+  line-height: 56px;
+  letter-spacing: -3.6px;
+}
+
+.text-title-small {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-black);
+  font-size: 48px;
+  line-height: 40px;
+  letter-spacing: -2.4px;
+}
+
+.text-title-smallest {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-medium);
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: -0.2px;
+}
+
+.text-body-strong {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-medium);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+}
+
+.text-body {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-regular);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+}
+
+.text-caption-strong {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-medium);
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: -0.13px;
+}
+
+.text-caption {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-regular);
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: -0.13px;
+}
+
+.font-weight-regular {
+  font-weight: var(--font-weight-regular);
+}
+
+.font-weight-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.font-weight-black {
+  font-weight: var(--font-weight-black);
+}
+
+/* Base */
+html {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-regular);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+body {
+  margin: 0;
+  background: var(--color-white);
+}
+
+:root[data-appearance="dark"] body {
+  background: var(--color-black);
+}

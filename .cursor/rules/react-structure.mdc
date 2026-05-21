@@ -1,0 +1,45 @@
+---
+description: React architecture, copy, and separation of concerns
+globs: "**/*.{tsx,ts}"
+alwaysApply: false
+---
+
+# React structure
+
+## Stack
+
+- React with functional components and hooks.
+- TypeScript when the project is configured for it; same folder conventions apply for JavaScript.
+
+## Copy
+
+- All user-visible strings live under `src/content/` (single source of truth).
+- Components import copy from `src/content/` or receive it via props—no hardcoded UI strings in JSX.
+- **Exception:** `src/screens/design-system/**` may hardcode organizer/chrome strings (section titles, token ids, control labels). See `docs/design-system-page.md`. Approved components shown on that page still use `src/content/` for real app UI text.
+
+## Logic vs presentation
+
+- **Presentation** (`*.tsx`): render UI; minimal local UI state (open/closed, focus).
+- **Logic** (`src/hooks/`, `src/lib/`): game rules, derived state, side effects, data shaping.
+- Screens compose hooks + presentational pieces; avoid fat components mixing both.
+
+## File layout
+
+```
+src/
+  content/       # all copy
+  components/    # approved components only (see docs/components.md)
+  screens/       # page-level composition
+  hooks/         # logic
+  lib/           # pure helpers (optional)
+  styles/
+    theme.css    # design tokens
+```
+
+## Style conventions
+
+- Prefer one obvious pattern over many abstractions.
+- Extract a hook when logic is reused or a component would exceed ~80 lines of mixed concerns.
+- Prefer named exports for components; keep folder structure flat until growth warrants nesting.
+- Avoid barrel re-exports (`index.ts` re-exporting everything) until clearly needed.
+- Comments: only non-obvious "why", not "what".

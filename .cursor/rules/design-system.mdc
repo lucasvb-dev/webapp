@@ -1,0 +1,50 @@
+---
+description: Visual design tokens, motion, and assets
+globs: "**/*.{css,tsx,ts}"
+alwaysApply: false
+---
+
+# Design system
+
+## Tokens (`src/styles/theme.css`)
+
+- Never hardcode visual values: color, radius, typography, shadow, spacing (padding/margin), motion duration/easing, or interaction states.
+- Always use CSS custom properties from `src/styles/theme.css`.
+- `theme.css` is the only source of design tokens; avoid duplicating hex in TS unless there is a clear need.
+- If a needed token does not exist, stop and ask—or request it be added to `theme.css` before continuing.
+
+## Colors — palette only (no semantic tokens)
+
+Use the main palette variables only: `--color-white`, `--color-black`, `--color-accent`, `--color-shade-lightest` through `--color-shade-darkest`.
+
+- Do **not** introduce extra semantic color names (`primary`, `text-muted`, etc.) beyond this palette.
+- For icons, pass a palette token to `<Icon color="accent" />` or use `paletteColorVar("accent")` in CSS/`style` — not separate `icon-color-*` utility classes.
+
+### Examples
+
+```css
+/* Bad */
+.card {
+  padding: 16px;
+  color: #333;
+}
+
+/* Good */
+.card {
+  padding: var(--space-16);
+  color: var(--color-shade-darkest);
+}
+```
+
+## Motion
+
+- Prefer token-based CSS transitions for simple states (hover, focus, opacity).
+- Use [Motion](https://motion.dev) only when it clearly fits: layout transitions, orchestrated sequences, gestures, or motion that is awkward in CSS alone.
+- Do not use Motion for every hover or micro-interaction; use CSS + tokens first.
+- Respect `prefers-reduced-motion` when adding non-trivial animation.
+
+## Assets and icons
+
+- Do not import, create, or substitute icons/images (no icon packs, no AI placeholders).
+- Reference only assets documented in `docs/assets.md` and provided by the owner.
+- If an asset is missing, ask for it to be uploaded first.

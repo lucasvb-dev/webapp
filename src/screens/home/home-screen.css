@@ -1,0 +1,22 @@
+.home-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: var(--space-16);
+  padding-top: var(--space-56);
+  padding-bottom: var(--space-16);
+  background: var(--color-white);
+  color: var(--color-shade-darkest);
+}
+
+:root[data-appearance="dark"] .home-screen {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.home-screen > :first-child {
+  margin-top: 0;
+}
+
+.home-screen p {
+  margin: var(--space-12) 0;
+}

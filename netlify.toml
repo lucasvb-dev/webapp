@@ -1,0 +1,17 @@
+# Netlify reads this file automatically when you connect the GitHub repo.
+# You do not need to change these settings in the Netlify website UI.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA fallback for client-side routes. Netlify serves real files in dist first
+# (e.g. /splash/*.png, /icons/*.png) — they are not replaced by this rule.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false

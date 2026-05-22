@@ -54,7 +54,6 @@
 
 .design-system__main {
   padding: var(--space-16);
-  padding-bottom: calc(var(--space-16) + var(--space-48) + var(--space-16));
 }
 
 .design-system__page-title {
